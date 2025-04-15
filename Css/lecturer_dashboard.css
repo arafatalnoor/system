@@ -1,0 +1,78 @@
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.status-badge.pending {
+    background: #f39c1220;
+    color: #f39c12;
+}
+
+.status-badge.accepted {
+    background: #27ae6020;
+    color: #27ae60;
+}
+
+.status-badge.refused {
+    background: #e74c3c20;
+    color: #e74c3c;
+}
+
+.message.accepted {
+    border-left: 4px solid #27ae60;
+}
+
+.message.refused {
+    border-left: 4px solid #e74c3c;
+}
+
+.refuse-reason {
+    color: #e74c3c;
+    font-style: italic;
+    margin-top: 8px;
+}
+
+.refuse-reason-input {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(231, 76, 60, 0.05);
+    border-radius: 8px;
+}
+
+.refuse-reason-input textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e74c3c;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+.send-reason {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.send-reason:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+.response-options form {
+    margin-right: 10px;
+}
+
+.response-options form:last-child {
+    margin-right: 0;
+}
+
+.response-options button {
+    margin: 0;
+} 

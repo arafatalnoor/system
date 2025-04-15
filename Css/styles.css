@@ -1,0 +1,440 @@
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    background: #f6f8fd;
+    position: relative;
+}
+
+/* Background Container */
+.bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: flex;
+}
+
+.bg-container::before {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    background: url('../Css/images/uthmbackground.png') no-repeat center;
+    background-size: cover;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+}
+
+.bg-container::after {
+    content: '';
+    position: absolute;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(30, 60, 114, 0.95), rgba(42, 82, 152, 0.9));
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+}
+
+/* Main Container */
+.container {
+    width: 100%;
+    max-width: 450px;
+    margin: 20px;
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: scaleIn 0.5s ease-out;
+}
+
+/* Decorative Elements */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -150px;
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #2a5298, #1e3c72);
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/* Form Title */
+#form-title {
+    font-size: 2.5rem;
+    color: #1e3c72;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 0.8s ease-out;
+}
+
+#form-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 4px;
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    border-radius: 2px;
+}
+
+/* Form Elements */
+form {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    position: relative;
+    display: block;
+    left: 0;
+    top: 0;
+    margin-bottom: 8px;
+    background: transparent;
+    padding: 0;
+    color: #1e3c72;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.input-group input,
+.input-group select {
+    margin-top: 0;
+    width: 100%;
+    padding: 12px 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e1e5ee;
+    border-radius: 15px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+input:focus, select:focus {
+    border-color: #1e3c72;
+    box-shadow: 0 0 0 4px rgba(30, 60, 114, 0.1);
+    outline: none;
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(30, 60, 114, 0.2);
+}
+
+/* Switch Button */
+.switch-btn {
+    display: inline-block;
+    margin-top: 25px;
+    color: #1e3c72;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    background: rgba(30, 60, 114, 0.05);
+    font-weight: 500;
+    animation: fadeIn 0.5s ease-out 0.6s backwards;
+}
+
+.switch-btn:hover {
+    background: rgba(30, 60, 114, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Error Message */
+#error-message {
+    background: #fff1f0;
+    color: #ff3333;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 15px;
+    border: 1px solid #ffccc7;
+    animation: shake 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bg-container::before,
+    .bg-container::after {
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 25%, 0 35%);
+    }
+
+    .container {
+        padding: 30px 25px;
+        margin: 15px;
+    }
+
+    #form-title {
+        font-size: 2rem;
+    }
+
+}
+
+/* Selection Prevention */
+.switch-btn {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+/* Animation for form elements */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+form > * {
+    animation: slideIn 0.5s ease-out backwards;
+}
+form > *:nth-child(1) { animation-delay: 0.2s; }
+form > *:nth-child(2) { animation-delay: 0.3s; }
+form > *:nth-child(3) { animation-delay: 0.4s; }
+form > *:nth-child(4) { animation-delay: 0.5s; }
+
+/* Add these animations to your existing CSS */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Add smooth transitions */
+input, select, button, .switch-btn {
+    transition: all 0.3s ease;
+}
+
+/* Add hover effects */
+input:hover, select:hover {
+    border-color: #2a5298;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(30, 60, 114, 0.2);
+}
+
+.switch-btn:hover {
+    background: rgba(30, 60, 114, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Add error message animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+
+#error-message {
+    animation: shake 0.5s ease-out;
+}
+
+/* Improve form transitions */
+#login-form, #register-form {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Add focus effects */
+input:focus, select:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(30, 60, 114, 0.1);
+}
+
+/* Add this style to adjust the role label position */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+label[for="role"] {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    background: white;
+    padding: 0 5px;
+    color: #1e3c72;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+select[name="role"] {
+    margin-top: 10px;
+}
+
+/* Remove any existing label positioning that might interfere */
+label[for="role"],
+label[for="matric"] {
+    position: relative;
+    top: auto;
+    left: auto;
+    background: transparent;
+}
+
+
+
+/* Add these styles to prevent text selection globally */
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Allow text selection only in input fields */
+input, textarea {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+/* Ensure proper cursor behavior */
+* {
+    cursor: default;
+}
+
+input {
+    cursor: text;
+}
+
+button, .switch-btn, select {
+    cursor: pointer;
+}
+
+/* Remove text selection highlight color */
+::selection {
+    background: transparent;
+}
+
+::-moz-selection {
+    background: transparent;
+}
+
+/* Allow selection in input fields */
+input::selection {
+    background: #1e3c72;
+    color: white;
+}
+
+input::-moz-selection {
+    background: #1e3c72;
+    color: white;
+}
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Register</title>
+
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="Css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="bg-container">
+        <div class="bg-circles">
+            <div class="wave"></div>
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Login Form -->
+        <div id="login-form">
+            <h1 id="form-title">Login</h1>
+            <form id="loginForm" action="login_user.php" method="POST" onsubmit="return handleLoginSubmit()">
+                <div class="input-group">
+                    <label for="matric">Matric:</label>
+                    <input type="text" name="matric" id="matric" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="role">Role:</label>
+                    <select name="role" id="role" required>
+                        <option style="display: none;" value="">Select Role</option>
+                        <option value="student">Student</option>
+                        <option value="lecturer">Lecturer</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Login</button>
+                <div id="error-message" style="color: red; display: none;">Please select a valid role.</div>
+            </form>
+            <div class="switch-btn" onclick="toggleForm()">Don't have an account? Register</div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-form" style="display: none;">
+            <h1 id="form-title">Register</h1>
+            <form id="registerForm" action="register_user.php" method="POST" onsubmit="return handleRegisterSubmit()">
+                <div class="input-group">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="matric">Matric:</label>
+                    <input type="text" name="matric" id="matric" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="role">Role:</label>
+                    <select name="role" id="role" required>
+                        <option style="display: none;" value="">Select Role</option>
+                        <option value="student">Student</option>
+                        <option value="lecturer">Lecturer</option>
+                    </select>
+                </div>
+                
+                <button type="submit">Register</button>
+            </form>
+            <div class="switch-btn" onclick="toggleForm()">Already have an account? Login</div>
+        </div>
+    </div>
+
+    <!-- Link to External JavaScript -->
+    <script src="Css/Js/login.js"></script>
+</body>
+
+</html>
